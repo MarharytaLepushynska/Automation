@@ -1,0 +1,74 @@
+###File: Librarian.java###
+/**
+ * Represents a library worker
+ */
+public class Librarian {
+    private String name;
+
+    public Librarian(String name) {
+        this.name = name;
+    }
+
+    //TODO: receiving books
+
+    /**
+     * Finds book for visitor
+     * @param visitor
+     * @param book
+     */
+    public void findBook(Visitor visitor, String book) {
+        System.out.println(this.name + " is looking for " + book + " for " + visitor.getName());
+    }
+}
+
+
+###File: Library.java###
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Represents a library with list of books
+ */
+public class Library {
+    private List<String> books = new ArrayList<String>();
+
+    //TODO: add sort by name
+
+    /**
+     * Adds a book to the library
+     * @param book
+     */
+    public void addBook(String book) {
+        books.add(book);
+    }
+
+    /**
+     * Returns all books in the library
+     */
+    public List<String> getBooks() {
+        return books;
+    }
+}
+
+
+###File: Visitor.java###
+/**
+ * Represents a library visitor who takes books
+ */
+public class Visitor {
+    String name;
+    // TODO: List of wanted books
+
+    public Visitor(String name) {
+        this.name = name;
+    }
+
+    /**
+     * Returns visitors name
+     */
+    public String getName() {
+        return name;
+    }
+}
+
+
