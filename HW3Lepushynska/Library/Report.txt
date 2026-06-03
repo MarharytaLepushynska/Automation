@@ -24,12 +24,14 @@ Visitor.java
 
 
 ##TODOs##
-11: //TODO: receiving books
-10: //TODO: add sort by name
-6: // TODO: List of wanted books
+13: //TODO: receiving books
+14: //TODO: add sort by name
+8: // TODO: List of wanted books
 
 ##AllCode##
 Librarian.java
+package org.naukma;
+
 /**
  * Represents a library worker
  */
@@ -54,8 +56,12 @@ public class Librarian {
 
 
 Library.java
+package org.naukma;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  * Represents a library with list of books
@@ -79,10 +85,24 @@ public class Library {
     public List<String> getBooks() {
         return books;
     }
+
+    public void addBooks(File file){
+        try {
+            Scanner scanner = new Scanner(file);
+            while (scanner.hasNextLine()) {
+                books.add(scanner.nextLine());
+            }
+            scanner.close();
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
 
 
 Visitor.java
+package org.naukma;
+
 /**
  * Represents a library visitor who takes books
  */
@@ -101,5 +121,6 @@ public class Visitor {
         return name;
     }
 }
+
 
 
