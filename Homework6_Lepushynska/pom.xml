@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.naukma</groupId>
-    <artifactId>Homework6_Lepushynska</artifactId>
+    <artifactId>homework6_lepushynska</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>
