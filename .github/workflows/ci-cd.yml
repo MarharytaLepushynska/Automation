@@ -3,10 +3,8 @@ name: CI/CD Pipeline
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
-  paths:
-    - 'Homework6_Lepushynska/**'
+    paths:
+      - 'Homework6_Lepushynska/**'
 
 permissions:
   contents: read
