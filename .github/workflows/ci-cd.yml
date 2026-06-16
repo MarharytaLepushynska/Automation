@@ -5,6 +5,10 @@ on:
     branches: [ main ]
     paths:
       - 'Homework6_Lepushynska/**'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'Homework6_Lepushynska/**'
 
 permissions:
   contents: read
@@ -77,14 +81,16 @@ jobs:
         uses: actions/upload-artifact@v5
         with:
           name: bookstore
-          path: target/*.jar
+          path: Homework6_Lepushynska/target/*.jar
 
   publish-artifacts:
     name: "Publish jar to Github Packages"
     needs: [build-jar]
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     runs-on: ubuntu-latest
-
+    defaults:
+      run:
+        working-directory: Homework6_Lepushynska
 
     steps:
       - name: Checkout repo
