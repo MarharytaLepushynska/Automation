@@ -1,7 +1,6 @@
 public class Book {
     private String title;
     private long amount;
-    private double price;
 
     Book(String title) {
         this.title = title;
