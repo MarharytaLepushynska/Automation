@@ -1,0 +1,98 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  analyze-code:
+    name: "Analyze code"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v5
+
+      - name: Set up JDK
+        uses: actions/setup-java@v5
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Static code analyzer
+        run: mvn -B checkstyle:check
+
+  test:
+      name: "Runs auto tests"
+      needs: [analyze-code]
+      runs-on: ubuntu-latest
+
+      steps:
+        - name: Checkout repo
+          uses: actions/checkout@v5
+
+        - name: Set up JDK
+          uses: actions/setup-java@v5
+          with:
+            java-version: '21'
+            distribution: 'temurin'
+
+        - name: Run tests
+          run: mvn -B test
+
+  build-jar:
+    name: "Builds jar"
+    needs: [test]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v5
+
+      - name: Set up JDK
+        uses: actions/setup-java@v5
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: build jar
+        run: mvn -B package -DskipTests
+
+      - name: upload jar as artifact
+        uses: actions/upload-artifact@v5
+        with:
+          name: bookstore
+          path: target/*.jar
+
+  publish-artifacts:
+    name: "Publish jar to Github Packages"
+    needs: [build-jar]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v5
+
+      - name: Set up JDK with auth
+        uses: actions/setup-java@v5
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          server-id: 'github'
+
+      - name: Add jar to GitHub Packages
+        run: mvn -B deploy -DskipTests
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+
+
+
+
