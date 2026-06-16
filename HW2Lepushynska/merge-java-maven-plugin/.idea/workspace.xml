@@ -5,13 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7413326b-e547-44b3-9598-50ec93597977" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../Practice2/core/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Practice2/core/src/main/java/FindSum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Practice2/data/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Practice2/data/src/main/java/FileReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Practice2/test.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Practice2/user/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Practice2/user/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../HW1-Lepushynska/src/main/java/ConputerInfoServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../HW1-Lepushynska/src/main/java/ConputerInfoServlet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,7 +52,7 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "E:/Study/NaUKMA/Second Year/Automation/HW2Lepushynska/merge-java-maven-plugin",
+    "last_opened_file_path": "E:/Study/NaUKMA/Second Year/Raft",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -89,7 +82,10 @@
       <option name="presentableId" value="Default" />
       <updated>1779831377551</updated>
       <workItem from="1779831378737" duration="2781000" />
-      <workItem from="1779860953754" duration="2893000" />
+      <workItem from="1779860953754" duration="3294000" />
+      <workItem from="1779874575119" duration="1000" />
+      <workItem from="1779883232346" duration="1138000" />
+      <workItem from="1780220860242" duration="41000" />
     </task>
     <servers />
   </component>

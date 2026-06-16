@@ -8,7 +8,7 @@ import java.io.PrintWriter;
 import java.lang.management.ManagementFactory;
 import java.lang.management.OperatingSystemMXBean;
 
-@WebServlet(name = "ComputerInfoServlet", value = "/computer-info-servlet")
+@WebServlet(name = "ComputerInfoServlet", value = "/cоmputer-info-servlet")
 public class ConputerInfoServlet extends HttpServlet {
     private String message;
 
