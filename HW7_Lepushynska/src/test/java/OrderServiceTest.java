@@ -131,14 +131,18 @@ class OrderServiceTest {
     }
 
     @Test
-    void shouldReturn20PercentDiscount() {
-        double discount = BookStrorage.generateDiscount(6000);
-
-        assertEquals(1200, discount);
+    void checkNormalNumbers() {
+        assertEquals(1200, BookStrorage.generateDiscount(6000));
+        assertEquals(200, BookStrorage.generateDiscount(2000));
+        assertEquals(0, BookStrorage.generateDiscount(500));
     }
 
     @Test
-    void shouldReturnZeroFor1000() {
+    void checkAllCases() {
+        assertEquals(1200, BookStrorage.generateDiscount(6000));
+        assertEquals(500, BookStrorage.generateDiscount(5000));
+        assertEquals(200, BookStrorage.generateDiscount(2000));
         assertEquals(0, BookStrorage.generateDiscount(1000));
+        assertEquals(0, BookStrorage.generateDiscount(500));
     }
 }
